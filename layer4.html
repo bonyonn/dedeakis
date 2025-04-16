@@ -4,41 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layer 4 - Cerita Kita, Dede Akis</title>
-  <link rel="stylesheet" href="layer4.css" onerror="console.error('Failed to load layer4.css. Check the file path or case-sensitivity.');">
-  <style>
-    /* Inline style untuk pastikan konten muncul */
-    #intro {
-      display: block !important;
-      text-align: center;
-      font-size: 1.4em;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      background: #f5e8c7;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    #book {
-      display: block !important;
-      width: 85%;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 40px;
-      background: #f5e8c7;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.1);
-      min-height: 80vh;
-      position: relative;
-      border-radius: 10px;
-    }
-    img:not([src=""]) {
-      display: none !important;
-    }
-  </style>
+  <link rel="stylesheet" href="layer4.css" onerror="console.error('Failed to load layer4.css. Check the file path.');">
 </head>
 <body>
-  <p style="color: red; font-size: 20px;">Test: Jika ini muncul, halaman sudah terupdate.</p>
   <div id="intro">
     <p>Dede Akis, ini cerita kita... ❤️</p>
     <button onclick="startBook()">Buka Buku</button>
@@ -86,25 +54,17 @@
     Your browser does not support the audio element.
   </audio>
 
-  <script src="layer4.js" onerror="console.error('Failed to load layer4.js. Check the file path or case-sensitivity.');"></script>
+  <script src="layer4.js" onerror="console.error('Failed to load layer4.js. Check the file path.');"></script>
   <script>
-    // Debug untuk memastikan file dimuat
-    const img = new Image();
-    img.src = 'layer4.jpg';
-    img.onload = () => console.log('layer4.jpg loaded successfully');
-    img.onerror = () => console.error('Failed to load layer4.jpg. Check the file path or case-sensitivity.');
+    // Debug path untuk gambar
+    const img1 = new Image();
+    img1.src = 'layer43.jpeg';
+    img1.onload = () => console.log('Loaded: assets4/layer43.jpeg');
+    img1.onerror = () => console.error('Failed to load: assets4/layer43.jpeg');
 
-    const audio = new Audio('laye4.mp3');
-    audio.oncanplay = () => console.log('laye4.mp3 loaded successfully');
-    audio.onerror = () => console.error('Failed to load laye4.mp3. Check the file path or case-sensitivity.');
-
-    // Fallback jika JavaScript gagal
-    window.onload = () => {
-      if (typeof startBook !== 'function') {
-        console.error('startBook function not found. Showing intro by default.');
-        document.getElementById('intro').style.display = 'block';
-      }
-    };
+    // Debug CSS load
+    const cssLink = document.querySelector('link[href="layer4.css"]');
+    cssLink.onload = () => console.log('layer4.css loaded successfully');
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'930a65586ee6bfe2',t:'MTc0NDcwOTEyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9312ff6d6acc87e7',t:'MTc0NDc5OTMyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

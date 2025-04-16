@@ -33,6 +33,7 @@ body {
 }
 
 #intro {
+  display: block; /* Pastikan intro muncul secara default */
   text-align: center;
   font-size: 1.4em;
   position: fixed;
@@ -55,7 +56,7 @@ body {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.1);
   min-height: 80vh;
   position: relative;
-  display: none;
+  display: none; /* Akan diubah oleh JS */
   border-radius: 10px;
 }
 

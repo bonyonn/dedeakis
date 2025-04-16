@@ -5,8 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Layer 4 - Cerita Kita, Dede Akis</title>
   <link rel="stylesheet" href="layer4.css" onerror="console.error('Failed to load layer4.css. Check the file path or case-sensitivity.');">
+  <style>
+    /* Inline style untuk pastikan konten muncul */
+    #intro {
+      display: block !important;
+      text-align: center;
+      font-size: 1.4em;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      background: #f5e8c7;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    #book {
+      display: block !important;
+      width: 85%;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #f5e8c7;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.1);
+      min-height: 80vh;
+      position: relative;
+      border-radius: 10px;
+    }
+    img:not([src=""]) {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
+  <p style="color: red; font-size: 20px;">Test: Jika ini muncul, halaman sudah terupdate.</p>
   <div id="intro">
     <p>Dede Akis, ini cerita kita... ❤️</p>
     <button onclick="startBook()">Buka Buku</button>

@@ -66,9 +66,13 @@
     audio.oncanplay = () => console.log('laye4.mp3 loaded successfully');
     audio.onerror = () => console.error('Failed to load laye4.mp3. Check the file path or case-sensitivity.');
 
-    // Debug CSS load
-    const cssLink = document.querySelector('link[href="layer4.css"]');
-    cssLink.onload = () => console.log('layer4.css loaded successfully');
+    // Fallback jika JavaScript gagal
+    window.onload = () => {
+      if (typeof startBook !== 'function') {
+        console.error('startBook function not found. Showing intro by default.');
+        document.getElementById('intro').style.display = 'block';
+      }
+    };
   </script>
 </body>
 </html>

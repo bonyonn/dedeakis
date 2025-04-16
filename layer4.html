@@ -1,146 +1,78 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Georgia', serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: url('layer4.jpg') repeat;
-  background-size: 225px 300px; /* Proporsi 3:4 biar sesuai rasio portrait */
-  animation: diagonalMove 20s linear infinite;
-  z-index: -1;
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layer 4 - Cerita Kita, Dede Akis</title>
+  <link rel="stylesheet" href="layer4.css" onerror="console.error('Failed to load layer4.css. Check the file path or case-sensitivity.');">
+</head>
+<body>
+  <div id="intro">
+    <p>Dede Akis, ini cerita kita... ❤️</p>
+    <button onclick="startBook()">Buka Buku</button>
+  </div>
+  <div id="book" style="display: block;">
+    <div id="chapter1" class="page">
+      <h2>CHAPTER I: 18 April 2021 Hari Bersejarah</h2>
+      <div id="ch1-content"></div>
+      <button id="ch1-next" onclick="nextPage(1)" style="display: none;">Lanjut</button>
+    </div>
+    <div id="chapter2" class="page">
+      <h2>CHAPTER II: Dipisahkan Karena Terpaksa</h2>
+      <div id="ch2-content"></div>
+      <button id="ch2-next" onclick="nextPage(2)" style="display: none;">Lanjut</button>
+    </div>
+    <div id="chapter3" class="page">
+      <h2>CHAPTER III: Kamu Punya Pasangan Cowo Lain</h2>
+      <div id="ch3-content"></div>
+      <button id="ch3-next" onclick="nextPage(3)" style="display: none;">Lanjut</button>
+    </div>
+    <div id="chapter4" class="page">
+      <h2>CHAPTER IV: GENGSI</h2>
+      <div id="ch4-content"></div>
+      <button onclick="showSegment(0)" style="display: none;" id="seg0-btn">Baca Awal</button>
+      <button onclick="showSegment(1)" style="display: none;" id="seg1-btn">Baca Lagi</button>
+      <button onclick="showSegment(2)" style="display: none;" id="seg2-btn">Baca Lagi</button>
+      <button onclick="showSegment(3)" style="display: none;" id="seg3-btn">Baca Akhir</button>
+      <button id="ch4-next" onclick="nextPage(4)" style="display: none;">Lanjut</button>
+    </div>
+    <div id="chapter5" class="page">
+      <h2>CHAPTER V: Komitmen</h2>
+      <div id="ch5-content"></div>
+      <div id="question" style="display: none;">
+        <p class="pulse">Maukah kamu jadi pacarku?</p>
+        <button onclick="choose('Iya')">Iya</button>
+        <button onclick="choose('Enggak')">Enggak</button>
+      </div>
+      <div id="response"></div>
+    </div>
+  </div>
 
-/* Fallback background */
-body {
-  background-color: #f5e8c7; /* Fallback jika gambar gagal */
-}
+  <!-- Backsound -->
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="laye4.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-/* Debug untuk memastikan CSS dimuat */
-@media screen and (min-width: 0px) {
-  body {
-    content: url('layer4.jpg'); /* Debug: jika gambar gagal, akan muncul di console */
-  }
-}
+  <script src="layer4.js" onerror="console.error('Failed to load layer4.js. Check the file path or case-sensitivity.');"></script>
+  <script>
+    // Debug untuk memastikan file dimuat
+    const img = new Image();
+    img.src = 'layer4.jpg';
+    img.onload = () => console.log('layer4.jpg loaded successfully');
+    img.onerror = () => console.error('Failed to load layer4.jpg. Check the file path or case-sensitivity.');
 
-@keyframes diagonalMove {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 225px 300px; /* Sesuaikan dengan background-size */
-  }
-}
+    const audio = new Audio('laye4.mp3');
+    audio.oncanplay = () => console.log('laye4.mp3 loaded successfully');
+    audio.onerror = () => console.error('Failed to load laye4.mp3. Check the file path or case-sensitivity.');
 
-#intro {
-  display: block; /* Pastikan intro muncul secara default */
-  text-align: center;
-  font-size: 1.4em;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: fadeIn 2s;
-  z-index: 10;
-  background: #f5e8c7;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#book {
-  width: 85%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px;
-  background: #f5e8c7;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.1);
-  min-height: 80vh;
-  position: relative;
-  border-radius: 10px;
-}
-
-.page {
-  display: none;
-  opacity: 0;
-  transform: perspective(1000px) rotateY(30deg);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-.page.active {
-  display: block;
-  opacity: 1;
-  transform: perspective(1000px) rotateY(0deg);
-}
-
-h2 {
-  font-size: 2em;
-  color: #2b2b2b;
-  text-align: center;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  animation: slideIn 0.8s;
-}
-
-p {
-  font-size: 1.2em;
-  line-height: 1.7;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-button {
-  padding: 12px 25px;
-  margin: 10px;
-  border: none;
-  background: linear-gradient(#ff9999, #ff6666);
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.1em;
-  border-radius: 8px;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-}
-
-button:hover {
-  background: linear-gradient(#ff6666, #ff3333);
-  transform: translateY(-2px);
-}
-
-#response {
-  margin-top: 20px;
-  font-size: 1.3em;
-  text-align: center;
-  color: #222;
-}
-
-.pulse {
-  font-size: 1.8em;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-#book.closing {
-  animation: closeBook 1s forwards;
-}
-
-@keyframes closeBook {
-  0% { transform: perspective(1000px) rotateY(0); opacity: 1; }
-  100% { transform: perspective(1000px) rotateY(-90deg); opacity: 0; }
-}
-
-#floatingPhoto {
-  display: none !important;
-}
+    // Fallback jika JavaScript gagal
+    window.onload = () => {
+      if (typeof startBook !== 'function') {
+        console.error('startBook function not found. Showing intro by default.');
+        document.getElementById('intro').style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>

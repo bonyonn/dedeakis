@@ -48,6 +48,7 @@ body {
 }
 
 #book {
+  display: block; /* Pastikan book muncul secara default */
   width: 85%;
   max-width: 900px;
   margin: 40px auto;
@@ -142,5 +143,5 @@ button:hover {
 }
 
 #floatingPhoto {
-  display: none !important;
+  display: none !important; /* Sembunyikan foto besar kalau-kalau masih ada */
 }
